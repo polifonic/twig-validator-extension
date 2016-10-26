@@ -6,9 +6,9 @@ Installation
 
 ### As a Twig Extension
 
-Create an instance of `TwigVlidatorExtension` and add it to the Twig environment just like any other twig extension.
+Create an instance of `TwigValidatorExtension` and add it to the Twig environment just like any other twig extension.
 
-The TwigValidatorExtension consructor needs to be passed a validator (an instance of `Symfony\Component\Validator\Validator\ValidatorInterface`).
+The `TwigValidatorExtension` constructor needs to be passed a validator (an instance of `Symfony\Component\Validator\Validator\ValidatorInterface`).
 
 ``` php
 $validator = ...;
@@ -20,10 +20,10 @@ $twig->addExtension(new TwigValidatorExtension($validator));
 
 ### As a Symfony bundle
 
-The package includes a Symfony bundle named TwigValidatorBundle. This bundle
-will aumatically add the TwigValidatorExtension to twig.
+The package includes a Symfony bundle named `TwigValidatorBundle`. This bundle
+will automatically add the `TwigValidatorExtension` to twig.
 
-Enable the `TwigValidatorBundle` symfony budle by adding ot to your app's kernel:
+Enable the `TwigValidatorBundle` symfony bundle by adding it to your app's kernel:
 
 ``` php
 # app/AppKernel.php
