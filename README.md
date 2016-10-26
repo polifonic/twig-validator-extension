@@ -11,7 +11,7 @@ Add the package to your app's `composer.json`:
 
 ``` json
 	"require": {
-		...,
+
 	    "polifonic/twig-validator-extension": "^1.0",
 	}
 ```
@@ -23,6 +23,8 @@ Create an instance of `TwigValidatorExtension` and add it to the Twig environmen
 The `TwigValidatorExtension` constructor needs to be passed a validator (an instance of `Symfony\Component\Validator\Validator\ValidatorInterface`).
 
 ``` php
+use Polifonic\Twig\Extension\Validator\TwigValidatorExtension;
+
 $validator = ...;
 
 $twig = new Twig_Environment($loader);
