@@ -2,6 +2,7 @@
 
 namespace Polifonic\Twig\Extension\Validator\Symfony;
 
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class TwigValidatorBundle extends Bundle
