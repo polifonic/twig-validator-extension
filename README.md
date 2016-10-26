@@ -7,6 +7,14 @@ With this filter you can test if objects are valid inside a twig template and ge
 
 Installation
 ------------
+Add the package to your app's `composer.json`:
+
+``` json
+	"require": {
+		...,
+	    "polifonic/twig-validator-extension": "^1.0",
+	}
+```
 
 ### As a Twig Extension
 
