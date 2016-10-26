@@ -1,6 +1,10 @@
 Twig Validator Extension
 ========================
 
+A simple Twig extension that adds a `valid` filter to be used in twig templates.
+
+With this filter you can test if objects are valid inside a twig template and generate the appropriate markup based on the result.
+
 Installation
 ------------
 
