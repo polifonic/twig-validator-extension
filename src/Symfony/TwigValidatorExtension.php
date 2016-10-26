@@ -3,6 +3,8 @@
 namespace Polifonic\Twig\Extension\Validator\Symfony;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class TwigValidatorExtension extends Extension
@@ -13,7 +15,7 @@ class TwigValidatorExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
         $definition = new Definition(
-            'Polifonic\Twig\Extension\ValidatorExtension',
+            'Polifonic\Twig\Extension\Validator\ValidatorExtension',
             array(
                 new Reference('validator'),
             )
