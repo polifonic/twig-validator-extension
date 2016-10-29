@@ -4,6 +4,7 @@ namespace Polifonic\Twig\Extension\Validator;
 
 use Twig_Extension;
 use Twig_SimpleFilter;
+use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class ValidatorExtension extends Twig_Extension
@@ -37,7 +38,13 @@ class ValidatorExtension extends Twig_Extension
     public function validate($object, array $groups = null)
     {
         $violations = $this->getValidator()
-            ->validate($object, null, $groups);
+            ->validate(
+                $object,
+                array(
+                    new NotNull(),
+                ),
+                $groups
+            );
 
         return count($violations) == 0;
     }
