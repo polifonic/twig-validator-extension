@@ -29,24 +29,44 @@ class ValidatorExtension extends Twig_Extension
         return array(
             new Twig_SimpleFilter(
                 'valid',
+                array($this, 'valid'),
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFilter(
+                'invalid',
+                array($this, 'invalid'),
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFilter(
+                'validate',
                 array($this, 'validate'),
                 array('is_safe' => array('html'))
             ),
         );
     }
 
+    public function valid($object, array $groups = null)
+    {
+        $violations = $this->validate($object, $groups);
+
+        return count($violations) == 0 ? 1 : 0;
+    }
+
+    public function invalid($object, array $groups = null)
+    {
+        $violations = $this->validate($object, $groups);
+
+        return count($violations) > 0 ? 1 : 0;
+    }
+
     public function validate($object, array $groups = null)
     {
-        $violations = $this->getValidator()
+        return $this->getValidator()
             ->validate(
                 $object,
-                array(
-                    new NotNull(),
-                ),
+                null,
                 $groups
             );
-
-        return count($violations) == 0;
     }
 
     /**
@@ -54,7 +74,7 @@ class ValidatorExtension extends Twig_Extension
      */
     public function getName()
     {
-        return 'uam_user_validator';
+        return 'validate';
     }
 
     protected function getValidator()
