@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class ValidatorExtension extends Twig_Extension
 {
-    protected $container;
+    protected $validator;
 
     /**
      * @param \Symfony\Component\Validator\ValidatorInterface $validator
